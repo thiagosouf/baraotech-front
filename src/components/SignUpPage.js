@@ -5,11 +5,15 @@ import BaraoText from "../assets/img/Ativo4.png"
 
 export default function SignUpPage(){
 
+  function HandleFocus(e){
+    e.type="date"
+  }
+
   return(
     <SignUpContainer>
       <Form>
         <input type="text" placeholder="nome" required />
-        <input type="date" placeholder="aniversario" required />
+        <input type="date" placeholder="aniversario"  onFocus={e => HandleFocus(e)} required />
         <input type="phone" placeholder="telefone" />
         <input type="text" placeholder="e-mail" required />
         <input type= "password" placeholder="senha" required/>
@@ -43,7 +47,6 @@ const Form = styled.div`
     margin-bottom: 0.375rem;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
-    border-radius: 0.375rem;
     width: 16.25rem;
     height: 2.5rem;
     background-color: transparent;
