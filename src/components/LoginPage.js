@@ -11,6 +11,9 @@ export default function LoginPage(){
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  console.log(email)
+  console.log(typeof(email))
+
   function HandleSignUp(){
     navigate('/signup')
   }
@@ -24,7 +27,7 @@ export default function LoginPage(){
         </Logo2>
       </Image>
       <Form>
-        <input type="text" placeholder="e-mail" onChange={e => setEmail(e.target.value)} value={email} required/>
+        <input type="email" selected={email !== ""} placeholder="e-mail" onChange={e => setEmail(e.target.value)} value={email} required/>
         <input type= "password" placeholder="senha" onChange={e => setPassword(e.target.value)} value={password} required/>
         <button>Entrar</button>
       </Form>
@@ -80,16 +83,22 @@ const Form = styled.div`
   input{
     font-family: 'Source Sans Pro', sans-serif;
     outline: none;
+
     border: none;
-    transition: 600ms;
+    border-bottom: 2px solid white;
+    border-radius: 0;
+
+    transition: 500ms;
     transition-timing-function: linear;
     transition-delay: 100ms;
+
     margin-bottom: 0.375rem;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
-    border-radius: 0.375rem;
+
     width: 16.25rem;
     height: 2.5rem;
+
     background-color: transparent;
     color: white;
     ::placeholder,
@@ -99,7 +108,7 @@ const Form = styled.div`
   }
   }
 
-  input:hover{
+  input:focus{
     border-bottom: 2px solid #FF6500;
   }
 
